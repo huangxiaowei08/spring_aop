@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="hostess" class="cn.hxw.cn.hxw.study.entity.impl.Hostess">
+        <property name="dog" ref="erha"></property>
+    </bean>
+
+    <bean id="taidi" class="cn.hxw.cn.hxw.study.entity.impl.TaiDi"></bean>
+
+    <bean id="erha" class="cn.hxw.cn.hxw.study.entity.impl.ErHa"></bean>
+
+    <bean id="humanHandler" class="cn.hxw.cn.hxw.study.aop.HumanHandler">
+        <property name="target" ref="hostess"></property>
+    </bean>
+
+    <bean id="humanProxy" class="cn.hxw.cn.hxw.study.aop.framework.ProxyFactoryBean">
+        <property name="handlerName" ref="humanHandler"></property>
+        <property name="target" ref="hostess"></property>
+    </bean>
+</beans>
